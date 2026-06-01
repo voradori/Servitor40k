@@ -27,13 +27,12 @@ Verify with [Sharing Debugger](https://developers.facebook.com/tools/debug/) —
 ## Before submit
 
 - [ ] Pages enabled and both links open in an incognito window
-- [ ] Add your contact **email** in `README.md` below and optionally in `privacy.html` / `data-deletion.html`
+- [x] Contact email in `privacy.html` / `data-deletion.html` (matches Meta Dashboard)
 - [ ] **Deauthorize callback URL** is a real endpoint if Dashboard requires it — do not reuse `data-deletion.html` as a POST callback (see Meta docs)
 
 ## Contact (for privacy / deletion requests)
 
-<!-- Replace with your real email for Meta App Review -->
-**Email:** `voradoripl@gmail.com`  
+**Email:** [voradoripl@gmail.com](mailto:voradoripl@gmail.com)  
 **GitHub Issues:** https://github.com/voradori/Servitor40k/issues
 
 ## Files
