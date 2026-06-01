@@ -21,7 +21,19 @@ Replace after Pages is enabled (check **Settings → Pages** for the exact URL):
 | **Privacy Policy URL** | `https://voradori.github.io/Servitor40k/privacy.html` |
 | **Data Deletion Requests URL** | `https://voradori.github.io/Servitor40k/data-deletion.html` |
 | **OAuth redirect** (Threads → Settings) | `https://voradori.github.io/Servitor40k/oauth-callback.html` |
+| **Data deletion callback** (Threads → Settings) | `https://voradori.github.io/Servitor40k/data-deletion.html` |
+| **Deauthorize callback** (Threads → Settings) | `https://voradori.github.io/Servitor40k/data-deletion.html` *(static 200; revoke mainly via Threads → Website permissions)* |
 | Home (optional) | `https://voradori.github.io/Servitor40k/` |
+
+### Threads → Settings (все три поля)
+
+| Поле в Dashboard | URL |
+|------------------|-----|
+| URL обратного вызова для перенаправления | `https://voradori.github.io/Servitor40k/oauth-callback.html` |
+| URL обратного вызова для удаления приложения (deauthorize) | `https://voradori.github.io/Servitor40k/data-deletion.html` |
+| URL обратного звонка для удаления (data deletion) | `https://voradori.github.io/Servitor40k/data-deletion.html` |
+
+Сохранять **без** пустых полей. Страница `data-deletion.html` — инструкции для людей (и проверка Meta по GET); это не API endpoint для POST. Для соло-бота достаточно отзыва доступа в Threads + email из той же страницы.
 
 Verify with [Sharing Debugger](https://developers.facebook.com/tools/debug/) — expect HTTP **200**, no login wall.
 
