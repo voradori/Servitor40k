@@ -33,3 +33,47 @@ h2 { font-size: 1.15rem; margin-top: 1.75rem; }
 a { color: var(--link); }
 nav ul { padding-left: 1.25rem; }
 nav a { font-weight: 500; }
+code {
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.oauth-status {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  background: rgba(9, 105, 218, 0.08);
+  border: 1px solid rgba(9, 105, 218, 0.25);
+}
+.oauth-status--ok {
+  background: rgba(26, 127, 55, 0.1);
+  border-color: rgba(26, 127, 55, 0.35);
+}
+.oauth-status--error {
+  background: rgba(207, 34, 46, 0.1);
+  border-color: rgba(207, 34, 46, 0.35);
+}
+.oauth-panel.hidden { display: none; }
+.oauth-code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+  background: rgba(127, 127, 127, 0.12);
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.oauth-btn {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid rgba(127, 127, 127, 0.4);
+  background: var(--bg);
+  color: var(--text);
+}
+.oauth-hint {
+  font-size: 0.9rem;
+  color: var(--muted);
+}

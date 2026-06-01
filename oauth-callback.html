@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OAuth callback — Threads Servitor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>OAuth callback</h1>
+    <p class="lead">Redirect target for Threads authorization. After you approve access, Meta sends you here with a one-time <code>code</code> (valid ~1 hour).</p>
+
+    <div id="status" class="oauth-status" role="status" aria-live="polite"></div>
+
+    <div id="code-panel" class="oauth-panel hidden">
+      <h2>Authorization code</h2>
+      <p>Copy this value, then exchange it for a short-lived token:</p>
+      <pre id="auth-code" class="oauth-code"></pre>
+      <button type="button" id="copy-btn" class="oauth-btn">Copy code</button>
+      <p class="oauth-hint">Exchange: <code>POST https://graph.threads.net/oauth/access_token</code> with <code>grant_type=authorization_code</code>, your Threads App ID/secret, and <code>redirect_uri</code> exactly matching Dashboard (this page URL).</p>
+    </div>
+
+    <div id="error-panel" class="oauth-panel hidden">
+      <h2>Authorization canceled or failed</h2>
+      <pre id="error-detail" class="oauth-code"></pre>
+    </div>
+
+    <div id="idle-panel" class="oauth-panel">
+      <p>No <code>code</code> in the URL yet. Open the authorization link from Meta Dashboard or your local setup, then return here after approving permissions.</p>
+      <p class="oauth-hint"><strong>Dashboard:</strong> Threads → Settings → Redirect callback URL must be exactly:<br>
+      <code>https://voradori.github.io/Servitor40k/oauth-callback.html</code></p>
+    </div>
+
+    <p class="meta"><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></p>
+  </main>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var status = document.getElementById('status');
+      var codePanel = document.getElementById('code-panel');
+      var errorPanel = document.getElementById('error-panel');
+      var idlePanel = document.getElementById('idle-panel');
+      var codeEl = document.getElementById('auth-code');
+      var errorEl = document.getElementById('error-detail');
+      var copyBtn = document.getElementById('copy-btn');
+
+      function show(el) { el.classList.remove('hidden'); }
+      function hide(el) { el.classList.add('hidden'); }
+
+      var err = params.get('error');
+      if (err) {
+        hide(idlePanel);
+        show(errorPanel);
+        status.textContent = 'Authorization was not completed.';
+        status.className = 'oauth-status oauth-status--error';
+        errorEl.textContent = [
+          'error: ' + err,
+          'error_reason: ' + (params.get('error_reason') || ''),
+          'error_description: ' + (params.get('error_description') || '')
+        ].join('\n');
+        return;
+      }
+
+      var code = params.get('code');
+      if (code) {
+        hide(idlePanel);
+        show(codePanel);
+        status.textContent = 'Authorization code received. Copy it and exchange it on your machine — do not share publicly.';
+        status.className = 'oauth-status oauth-status--ok';
+        codeEl.textContent = code;
+        copyBtn.addEventListener('click', function () {
+          navigator.clipboard.writeText(code).then(function () {
+            copyBtn.textContent = 'Copied';
+            setTimeout(function () { copyBtn.textContent = 'Copy code'; }, 2000);
+          });
+        });
+        return;
+      }
+
+      status.textContent = 'Waiting for redirect from Threads OAuth.';
+      status.className = 'oauth-status';
+    })();
+  </script>
+</body>
+</html>
