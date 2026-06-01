@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Threads Servitor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p><strong>App name:</strong> Threads Servitor<br>
+    <strong>Last updated:</strong> 1 June 2026</p>
+
+    <p class="lead">This policy applies to a private, non-commercial automation tool used only by its owner to manage one Threads account via the Meta Threads API. This website does not offer registration, login, or services to the general public.</p>
+
+    <h2>1. Who operates this app</h2>
+    <p>The application is developed and operated by the account owner for personal use. There are no end-user accounts in Threads Servitor itself.</p>
+
+    <h2>2. Data we access</h2>
+    <p>Through Meta Threads API, after you (the account owner) authorize the app in Meta/Threads, we may access data you explicitly grant via OAuth permissions, such as:</p>
+    <ul>
+      <li>Threads user ID and profile fields allowed by granted scopes</li>
+      <li>Access tokens (short-lived and long-lived) for API calls</li>
+      <li>Your posts, replies, and related metadata needed to publish or manage your content</li>
+      <li>Insights or mentions, only if corresponding permissions are granted and used</li>
+    </ul>
+    <p>Meta processes data under its own policies when you use Threads and authorize third-party apps. See <a href="https://www.threads.com/legal/privacy" rel="noopener noreferrer">Threads Privacy Policy</a> and <a href="https://www.facebook.com/privacy/policy" rel="noopener noreferrer">Meta Privacy Policy</a>.</p>
+
+    <h2>3. How we use data</h2>
+    <p>Data is used only to:</p>
+    <ul>
+      <li>Publish and manage content on your Threads account</li>
+      <li>Read replies and perform actions you configure (e.g. hide/reply), within granted permissions</li>
+      <li>Run automated workflows and optional human review (e.g. private Discord review channel)</li>
+      <li>Debug API issues (token validity, scopes) without sharing tokens publicly</li>
+    </ul>
+    <p>We do not sell personal data. We do not use data for advertising or profiling unrelated to operating your bot.</p>
+
+    <h2>4. Where data is stored</h2>
+    <ul>
+      <li>Access tokens and configuration: local <code>.env</code> or private config files on the operator’s machines (not committed to public repositories)</li>
+      <li>Queue, drafts, and logs: local SQLite or private infrastructure controlled by the operator</li>
+      <li>No centralized multi-user database of third-party Threads users is maintained for a public service</li>
+    </ul>
+
+    <h2>5. Retention</h2>
+    <p>Data is kept only as long as needed to operate the automation. The operator may delete local databases and rotate tokens at any time. Revoking the app in Threads/Instagram settings stops new API access immediately.</p>
+
+    <h2>6. Sharing with third parties</h2>
+    <p>Aside from Meta (Threads API) and infrastructure you choose (e.g. hosting, optional Discord for review), data is not shared with third parties for their own purposes.</p>
+
+    <h2>7. Your choices and deletion</h2>
+    <p>To remove app access and stop processing:</p>
+    <ol>
+      <li>In Threads or Instagram: <strong>Settings → Website permissions</strong> (or Apps and websites) → remove <strong>Threads Servitor</strong>.</li>
+      <li>See <a href="data-deletion.html">Data Deletion Instructions</a> for local data handled by the operator.</li>
+    </ol>
+
+    <h2>8. Contact</h2>
+    <p>Questions or privacy requests:</p>
+    <ul>
+      <li>GitHub Issues: <a href="https://github.com/voradori/Servitor40k/issues">voradori/Servitor40k/issues</a></li>
+      <li>Or email the operator at the address listed in the repository README (replace before production use if needed).</li>
+    </ul>
+
+    <h2>9. Changes</h2>
+    <p>We may update this policy. The “Last updated” date will change when we do. Continued use of the app after changes means acceptance of the updated policy.</p>
+
+    <p class="meta"><a href="index.html">Home</a> · <a href="data-deletion.html">Data deletion</a></p>
+  </main>
+</body>
+</html>

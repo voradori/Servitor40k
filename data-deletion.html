@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Deletion Instructions — Threads Servitor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Data Deletion Instructions</h1>
+    <p><strong>App name:</strong> Threads Servitor<br>
+    <strong>Last updated:</strong> 1 June 2026</p>
+
+    <p class="lead">Threads Servitor is a private automation tool for a single account owner. There is no public user registration. This page explains how to revoke access and delete data associated with the app.</p>
+
+    <h2>1. Revoke access in Meta / Threads (required)</h2>
+    <p>This removes the app’s ability to call the Threads API on your behalf:</p>
+    <ol>
+      <li>Open <strong>Threads</strong> or <strong>Instagram</strong> account settings.</li>
+      <li>Go to <strong>Website permissions</strong> or <strong>Apps and websites</strong>.</li>
+      <li>Find <strong>Threads Servitor</strong> (or your Meta app display name) and choose <strong>Remove</strong> / revoke access.</li>
+    </ol>
+    <p>After revocation, stored access tokens stop working for API calls.</p>
+
+    <h2>2. Delete data on the operator’s systems</h2>
+    <p>The bot may store copies of API-related data locally (not on this GitHub Pages site), for example:</p>
+    <ul>
+      <li>OAuth tokens in <code>.env</code></li>
+      <li>SQLite queue, drafts, or logs on the operator’s computer or server</li>
+      <li>Optional review messages in a private Discord channel</li>
+    </ul>
+    <p>To request deletion of such local data, contact the operator:</p>
+    <ul>
+      <li><a href="https://github.com/voradori/Servitor40k/issues">GitHub Issues — Servitor40k</a></li>
+      <li>Or the contact email in the repository README</li>
+    </ul>
+    <p>The operator will: invalidate tokens, delete or anonymize local databases and logs related to your Threads account, and confirm when done.</p>
+
+    <h2>3. Meta data deletion callback</h2>
+    <p>If Meta sends a signed data-deletion request to a configured callback URL on the developer app, the operator will process it within a reasonable time using the same steps above. This static page is for user-facing instructions; it is not an API endpoint.</p>
+
+    <h2>4. Timeline</h2>
+    <p>Revocation in Threads/Instagram is immediate for new API access. Local deletion is typically completed within <strong>30 days</strong> of a verified request unless a shorter period is agreed.</p>
+
+    <p class="meta"><a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a></p>
+  </main>
+</body>
+</html>
